@@ -522,17 +522,22 @@
       to   { transform: translateX(0); }
     }
 
+    /* altura fixa do carrossel canva -> evita colapso de altura (imagens verticais + lazy) */
+    .carrossel-wrap .marquee { height: 420px; }
+    .carrossel-wrap .marquee-track { height: 100%; align-items: stretch; }
     .marquee-item {
       flex-shrink: 0;
-      width: 340px;
+      height: 100%;
+      display: flex;
     }
     .marquee-item img {
-      width: 100%;
-      height: auto;
+      height: 100%;
+      width: auto;
       display: block;
+      border-radius: var(--radius-md);
     }
     @media (max-width: 600px) {
-      .marquee-item { width: 75vw; }
+      .carrossel-wrap .marquee { height: 340px; }
       .marquee-track { gap: 14px; }
     }
     @media (prefers-reduced-motion: reduce) {
